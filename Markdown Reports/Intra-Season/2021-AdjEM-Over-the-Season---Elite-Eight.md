@@ -150,7 +150,7 @@ The chart below highlights the AdjEM of the elite eight over the duration of the
   }
 ```
 
-![](2021-AdjEM-Over-the-Season---Elite-Eight_files/figure-html/Elite Eight-1.png)<!-- -->
+![](2021-AdjEM-Over-the-Season---Elite-Eight_files/figure-html/EliteEight-1.png)<!-- -->
 
 
 

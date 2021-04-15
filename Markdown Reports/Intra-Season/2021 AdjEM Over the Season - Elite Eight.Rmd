@@ -90,7 +90,7 @@ setwd("../..")
 
 The chart below highlights the AdjEM of the elite eight over the duration of the season. The histogram along the y-axis is the distribution of AdjEM of tournament teams upon the beginning of the tournament.
 
-```{r Elite Eight}
+```{r EliteEight}
 
 
 
