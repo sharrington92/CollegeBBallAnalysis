@@ -27,7 +27,7 @@ output:
 ## x dplyr::lag()    masks stats::lag()
 ```
 
-The data comes from kenpom.com. As the data used in this analysis is part of the Kenpom Subscription, it will not be provided. For subscribers, see other the Scripts > Webscrape folder to pull this data. For non-subscribers, $20 per year of access is a steal.
+The data comes from kenpom.com. As the data used in this analysis is part of the Kenpom Subscription, it will not be provided. For subscribers, see the Scripts > Webscrape folder to pull this data. For non-subscribers, $20 per year of access is a steal.
 
 The following charts will analyze the Adjusted Effiency Margin (AdjEM) per Kenpom over the course of the season. Certain teams will be highlighted with the 2021 tournament teams in the background.
 
@@ -82,7 +82,7 @@ The chart below highlights the AdjEM of the final four over the duration of the 
 
 
 ```r
-#hightlighting final 4
+#highlighting final 4
   {
     p <- data %>% 
       filter(!is.na(Seed)) %>%
@@ -166,7 +166,7 @@ Here is that same chart expanded to show the Elite Eight teams.
 
 
 ```r
-#hightlighting elite eight
+#highlighting elite eight
   {
     p <- data %>%
       filter(!is.na(Seed)) %>%
@@ -246,7 +246,7 @@ Here is that same chart expanded to show the Elite Eight teams.
 
 
 ```r
-#hightlighting specific conference
+#highlighting specific conference
   {
     confHighlight.SeasonAdjEM <- function(conf){
       
