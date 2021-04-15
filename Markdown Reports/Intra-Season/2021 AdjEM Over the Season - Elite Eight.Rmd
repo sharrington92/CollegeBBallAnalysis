@@ -170,7 +170,7 @@ The chart below highlights the AdjEM of the elite eight over the duration of the
 
 
 
-```{r By Conf, fig.show='asis', cache=TRUE}
+```{r By Conf, fig.show='asis'}
 
 #hightlighting specific conference
   {

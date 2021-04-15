@@ -16,7 +16,7 @@
   save.name <- "Kenpom - Daily Data - Season 2021"
   
   date.bgn <- ymd("2020-11-25")
-  date.end <- today() #ymd("2020-11-25")
+  date.end <- ymd("2021-4-6")
     dates <- seq.Date(from = date.bgn, to = date.end, by = "1 day")
   
   power.conf <- c("SEC", "ACC", "B10", "B12", "P12", "BE", "Amer")
