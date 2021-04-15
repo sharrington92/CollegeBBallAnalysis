@@ -6,6 +6,7 @@ date: "4/14/2021"
 output: 
   html_document:
     keep_md: true
+    code_folding: hide
 ---
 
 
@@ -75,11 +76,93 @@ setwd("../..")
 ```
 
 
+### Final Four
+
+The chart below highlights the AdjEM of the final four over the duration of the season. The histogram along the y-axis is the distribution of AdjEM of tournament teams upon the beginning of the tournament.
+
+
+```r
+#hightlighting final 4
+  {
+    p <- data %>% 
+      filter(!is.na(Seed)) %>%
+      ggplot() +
+      geom_line(
+        aes(x = ymd(Date), y = AdjEM, color = Team),
+        size = 1
+      ) + 
+      geom_point(
+        data = data %>%
+          filter(!is.na(Seed), Date == ymd("2021-03-17")),
+        aes(x = Date, y = AdjEM),
+        size = 0, color = "gray80"
+      ) +
+      geom_vline(xintercept = ymd("2021-03-17")) +
+      gghighlight(
+        max(FinalFour), max_highlight = 4,
+        use_direct_label = FALSE
+      ) +
+      geom_dl(
+        aes(
+          x = Date, y = AdjEM, color = Team, label = Team
+        ),
+        method = list(
+          dl.trans(x = x + .05),
+          "last.bumpup", rot = 0, cex = 1
+        ),
+        size = .75
+      ) +
+      ggtitle(
+        "2021 Tournament Teams Season-Long Adjusted Efficiency",
+        "Final Four"
+      ) +
+      ylab("Adjusted Efficiency Margin") +
+      xlab("") +
+      labs(caption = "Data Source: Kenpom.com") +
+      scale_x_date(
+        limits = c(ymd("2020-12-01"), ymd("2021-4-1"))
+      ) +
+      theme_bw() +
+      theme(
+        plot.title = element_text(hjust = .5, size = 18),
+        plot.subtitle = element_text(hjust = .5, size = 15),
+        axis.title.y = element_text(size = 15)
+      ) +
+      geom_text(
+        aes(x = ymd("2021-3-18"), y = -12.5,
+            label = "Start of \nNCAA \nTournament"),
+        size = 3, color = "black", hjust = 0
+      ) +
+      geom_vline(xintercept = ymd("2021-03-1")) +
+      geom_text(
+        aes(x = ymd("2021-3-2"), y = -12.5,
+            label = "Start of \nConference \nTournaments"),
+        size = 3, color = "black", hjust = 0
+      ) + 
+      scale_color_manual(values = c(
+        "Baylor" = "#003015",
+        "Gonzaga" = "#041E42",
+        "UCLA" = "#2D68C4", #F2A900
+        "Houston" = "#C8102E" #76232F
+        ), guide = FALSE)
+    
+    p2 <- ggMarginal(
+      p, margins = "y",
+      type="densigram", size=10
+    )
+    p2
+    
+    
+  }
+```
+
+![](2021-AdjEM-Over-the-Season---Elite-Eight_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+
 
 
 ### Elite Eight
 
-The chart below highlights the AdjEM of the elite eight over the duration of the season. The histogram along the y-axis is the distribution of AdjEM of tournament teams upon the beginning of the tournament.
+Here is that same chart expanded to show the Elite Eight teams.
 
 
 ```r
@@ -256,24 +339,11 @@ i <- 1
 plots[i]
 ```
 
-![](2021-AdjEM-Over-the-Season---Elite-Eight_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
-
-```
-## [[1]]
-```
-
-
-```r
-i <- i + 1
-plots[i]
-```
-
 ![](2021-AdjEM-Over-the-Season---Elite-Eight_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 ```
 ## [[1]]
 ```
-
 
 
 ```r
@@ -568,6 +638,19 @@ plots[i]
 ```
 
 ![](2021-AdjEM-Over-the-Season---Elite-Eight_files/figure-html/unnamed-chunk-25-1.png)<!-- -->
+
+```
+## [[1]]
+```
+
+
+
+```r
+i <- i + 1
+plots[i]
+```
+
+![](2021-AdjEM-Over-the-Season---Elite-Eight_files/figure-html/unnamed-chunk-26-1.png)<!-- -->
 
 ```
 ## [[1]]
